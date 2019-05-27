@@ -1,0 +1,90 @@
+page-perfil {
+
+  .toolbar-background, .toolbar-background-ios, .toolbar-background-md {
+    background: transparent;
+  }
+
+  button{
+    float: right;
+  }
+
+  .information {
+    text-align: center;
+    font-weight: 600;
+
+    img {
+      border-radius: 50%;
+      height: 7em;
+      width: 7em;
+      border: 0.1em solid black;
+    }
+  }
+
+  .card, .card-ios, .card-md {
+    text-align: left;
+    margin: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(153, 153, 153, 0.4);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+
+
+    img {
+      height: 10em;
+      width: 6.53em;
+      display: inline;
+      vertical-align: middle;
+    }
+  }
+
+  .sectiontitle {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 0.3em;
+  }
+
+  .lista {
+    white-space: nowrap;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding:0;
+
+    .card-header, .card-header-ios, .card-header-md {
+      background-color: rgb(117, 117, 117);
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+      color: white;
+    }
+
+    .progreso {
+      float: right;
+      color: white;
+      font-size: 0.6em;
+      padding-top: 0.6em;
+      font-weight: bold;
+    }
+    .card-content, .card-content-ios, .card-content-md {
+      padding:0;
+    }
+
+    .contenido-lista {
+      overflow: scroll;
+      img {
+        height: 10em;
+        width: 6.53em;
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .historial {
+    white-space: nowrap;
+    overflow: scroll;
+    img {
+      border-radius: 0.5em;
+      margin-right: 0.3em;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let libro of libros | async">
+    <div class="content-wrapper" [ngStyle]="{'background-color': libro.color}">
+      <button ion-button (click)="dismiss()" class="atras" clear><ion-icon name="arrow-back"></ion-icon>&nbsp; Volver</button>
+      <div class="backsplash">
+        <img src={{libro.fondo}}/>
+      </div>
+      <div class="pelititle">{{libro.titulo}}</div>
+      <ion-grid padding-left>
+        <ion-row>
+          <ion-col col-3 padding-left>
+            <button ion-button outline round color="light" class="visto" (click)="leido(libro.id, libro.portada);"><ion-icon name="checkmark"></ion-icon>&nbsp; Leído</button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button outline round color="light" (click)="presentActionSheet(libro.id, libro.fondo, libro.publicacion, libro.titulo, libro.portada);"><ion-icon name="list"></ion-icon>&nbsp; Añadir a</button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button outline round color="light"><ion-icon name="chatbubbles"></ion-icon> &nbsp; Comentar</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="section">Información</div>
+        <ion-card padding>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-7>
+                    <div class="detalles">
+                    <ion-icon name="person"></ion-icon>&nbsp; {{libro.autor}}<br>
+                    <ion-icon name="book"></ion-icon>&nbsp; {{libro.genero}}<br>
+                    <ion-icon name="calendar"></ion-icon>&nbsp; {{libro.publicacion}}<br>
+                    </div>
+                  </ion-col>
+                  <ion-col col-5>
+                    <img class="poster" src={{libro.portada}}/>
+                  </ion-col>
+                </ion-row>
+                <br>
+                <ion-row>
+                  <div class="sinopsis">{{libro.sinopsis}}</div>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        <!-- <div class="section">Ver ahora</div>
+        <ion-card padding-top padding-left padding-right>
+            <ion-card-content class="verahora">
+              <div class="subtitle">Streaming</div>
+              <div class="noavailable" *ngIf="!peli[id].movistar && !peli[id].hbo && !peli[id].netflix &&!peli[id].primevideo; else list1">¡Vaya! Parece que este contenido no está disponible en streaming</div>
+              <ng-template #list1>
+                <ion-grid>
+                  <ion-row>
+                    <a *ngIf="peli[id].movistar" href="#" onclick="window.open('peli[id].movistar', '_system', 'location=yes');"><img src="https://images.justwatch.com/icon/5985414/s100/movistar-plus"/></a>
+                    <a *ngIf="peli[id].hbo" href="#" onclick="window.open('peli[id].hbo', '_system', 'location=yes');"><img src="https://images.justwatch.com/icon/3748099/s100/hbo"/></a>
+                    <a *ngIf="peli[id].netflix" href="#" onclick="window.open('peli[id].netflix', '_system', 'location=yes');"><img src="https://images.justwatch.com/icon/430997/s100/netflix"/></a>
+                    <a *ngIf="peli[id].primevideo" href="#" onclick="window.open('peli[id].primevideo', '_system', 'location=yes');"><img src="https://images.justwatch.com/icon/52449861/s100/amazon-prime-video"/></a>
+                  </ion-row>
+                </ion-grid>
+              </ng-template>
+              <div class="subtitle">Compra</div>
+              <div class="noavailable" *ngIf="!peli[id].applestore && !peli[id].microsoftstore && !peli[id].googleplay; else list2">¡Vaya! Parece que este contenido no está disponible para comprar</div>
+              <ng-template #list2>
+              <ion-grid>
+                <ion-row>
+                  <a *ngIf="peli[id].apple" href="#" onclick="window.open('peli[id].apple', '_system', 'location=yes');"><img src="https://images.justwatch.com/icon/430995/s100/apple-itunes"/></a>
+                  <a *ngIf="peli[id].microsoft" href="#" onclick="window.open('peli[id].microsoft', '_system', 'location=yes')"><img src="https://images.justwatch.com/icon/820542/s100/microsoft-store"/></a>
+                  <a *ngIf="peli[id].googleplay" href="#" onclick="window.open('peli[id].googleplay', '_system', 'location=yes')"><img src="https://images.justwatch.com/icon/820542/s100/microsoft-store"/></a>
+                </ion-row>
+              </ion-grid>
+            </ng-template>
+        </ion-card-content>
+      </ion-card> -->
+    </div>
+  </div>
+</ion-content>

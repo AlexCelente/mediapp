@@ -1,0 +1,216 @@
+<ion-header>
+</ion-header>
+
+<ion-content [ngStyle]="{'background-color': backcolor}">
+  <img src={{backsplash}}/>
+  <ion-segment [(ngModel)]="contenido" class="segment-wrap">
+    <ion-segment-button value="pelis" (click)="cambiaPelis()">
+        Películas
+      </ion-segment-button>
+      <ion-segment-button value="series" (click)="cambiaSeries()">
+        Series
+      </ion-segment-button>
+      <ion-segment-button value="libros" (click)="cambiaLibros()">
+        Libros
+      </ion-segment-button>
+  </ion-segment>
+  <ion-searchbar margin-top></ion-searchbar>
+  <div [ngSwitch]="contenido" padding>
+
+    <div *ngSwitchCase="'pelis'">
+      <ion-grid padding-bottom margin-bottom>
+        <ion-row>
+          <div class="titulolista">De estreno este mes</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let peli of pelisnuevas | async">
+                <img src={{peli.poster}} (click)="presentModal(peli.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom>
+        <ion-row>
+          <div class="titulolista">Principios de saga</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let peli of principiosagaspelis | async">
+                <img src={{peli.poster}} (click)="presentModal(peli.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom>
+        <ion-row>
+          <div class="titulolista">Los mejores malos</div>
+        </ion-row>
+        <ion-row padding-top>
+          <div class="contenidolista">
+            <ng-container *ngFor="let peli of mejoresmalos | async">
+              <img src={{peli.poster}} (click)="presentModal(peli.id);"/>
+            </ng-container>
+          </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Comedias geniales</div>
+        </ion-row>
+        <ion-row padding-top>
+          <div class="contenidolista">
+            <ng-container *ngFor="let peli of comedias | async">
+              <img src={{peli.poster}} (click)="presentModal(peli.id);"/>
+            </ng-container>
+          </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Descubre</div>
+        </ion-row>
+        <ion-row padding-top>
+          <div class="contenidolista">
+            <ng-container *ngFor="let peli of restopelis | async">
+              <img src={{peli.poster}} (click)="presentModal(peli.id);"/>
+            </ng-container>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div *ngSwitchCase="'series'">
+      <ion-grid padding-bottom margin-bottom>
+        <ion-row>
+          <div class="titulolista">Nuevo capítulo hoy</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+                <img src="https://image.tmdb.org/t/p/original/8SN7dCZkh4wFbCtRLWJUDhu9Nrn.jpg"/>
+                <img src="https://image.tmdb.org/t/p/original/gskv297rlbyzLaTU1XZf8UBbxp0.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/poQgqeiKzA50etdQoJxELMA6M4s.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/t17TmixmWhJeIC4ytLfis6frLYf.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/htqOS6RXXdUtIgJVsg3ddy6RJNH.jpg"/>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Series completas y geniales</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+                <img src="https://image.tmdb.org/t/p/original/q7J7A0sjDyyrZgRdXMMrFs9HqPc.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/qWnJzyZhyy74gjpSjIXWmuk0ifX.jpg"/>
+                <img src="https://image.tmdb.org/t/p/original/x406taKMDHCu6TqhOGEj9iVvC7L.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/tPqV63zcW6ZV0Hd48DMGb5UzQIG.jpg"/>
+                <img src="https://image.tmdb.org/t/p/original/f9zGxLHGyQB10cMDZNY5ZcGKhZi.jpg"/>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Nuevo en Netflix</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+                <img src="https://www.thetvdb.com/banners/posters/5caf1a222a00c.jpg"/>
+                <img src="https://www.thetvdb.com/banners/posters/5cbbce5a6f761.jpg"/>
+                <img src="https://www.thetvdb.com/banners/posters/270423-1.jpg"/>
+                <img src="https://www.thetvdb.com/banners/posters/5b9c00aa33743.jpg"/>
+                <img src="https://www.thetvdb.com/banners/posters/5c2fbb87ce282.jpg"/>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Lo mejor, y en streaming</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/rYbp7PCBhgL583rLFlyuPo43Ff9.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/knmKpwrnCEWkt3aCL4fvqr403EY.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/j24NiYZHsuLEdyYqUunlVCapC04.jpg" (click)= 'goToShow(0)'/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/qwrGbYxsZQEthB6vv96CCrTNs5T.jpg"/>
+                <img src="https://image.tmdb.org/t/p/w440_and_h660_face/rQoMSnm7Uv4yTDIumrVMbzL2DTt.jpg"/>
+            </div>
+        </ion-row>
+      </ion-grid>
+      </div>
+
+    <div *ngSwitchCase="'libros'">
+      <ion-grid padding-bottom margin-bottom>
+        <ion-row>
+          <div class="titulolista">Grandes clásicos</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let libro of grandeslibros | async">
+                <img src={{libro.portada}} (click)="goToBook(libro.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Engánchate a una saga</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let libro of principiosagas | async">
+                <img src={{libro.portada}} (click)="goToBook(libro.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Literatura española: Imprescindibles</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let libro of grandesespanoles | async">
+                <img src={{libro.portada}} (click)="goToBook(libro.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Los mejores cómics</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let libro of comics | async">
+                <img src={{libro.portada}} (click)="goToBook(libro.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid padding-bottom margin-bottom class="lista">
+        <ion-row>
+          <div class="titulolista">Descubre</div>
+        </ion-row>
+        <ion-row padding-top>
+            <div class="contenidolista">
+              <ng-container *ngFor="let libro of restolibros | async">
+                <img src={{libro.portada}} (click)="goToBook(libro.id);"/>
+              </ng-container>
+            </div>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

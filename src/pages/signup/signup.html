@@ -1,0 +1,26 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Registrarse</ion-title>
+    <ion-buttons slot="start">
+      <button ion-back-button></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="none">
+    <form [formGroup]="registerForm">
+
+      <ion-item>
+        <ion-label position="stacked">Correo electrónico</ion-label>
+        <ion-input type="email" formControlName="email" placeholder="Email address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+      </ion-item>
+      <button ion-button expand="block" (click)="register()">Registrarse</button>
+
+    </form>
+  </ion-list>
+</ion-content>

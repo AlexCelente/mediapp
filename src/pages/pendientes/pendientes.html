@@ -1,0 +1,137 @@
+<!--
+  Generated template for the PendientesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-shadow no-border>
+<ion-toolbar>
+<ion-segment [(ngModel)]="contenido" padding>
+  <ion-segment-button value="pelis">
+      Películas
+    </ion-segment-button>
+    <ion-segment-button value="series">
+      Series
+    </ion-segment-button>
+    <ion-segment-button value="libros">
+      Libros
+    </ion-segment-button>
+</ion-segment>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding-left padding-right>
+
+<div [ngSwitch]="contenido">
+
+  <div *ngSwitchCase="'pelis'">
+    <ng-container *ngFor="let peli of pelispendientes | async">
+      <ion-card *ngIf="peli.nombre">
+        <img (click)="goToPeli(peli.id)" src={{peli.captura}}/>
+        <ion-card-content>
+          <ion-card-title>
+            {{peli.nombre}}
+          </ion-card-title>
+          <ion-icon name="calendar" item-start></ion-icon> &nbsp;
+          {{peli.estreno}}
+          <button ion-button outline round color="dark" (click)="verPeli(peli.id, peli.poster);"><ion-icon name="checkmark"></ion-icon>&nbsp; Vista</button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </div>
+
+  <div *ngSwitchCase="'series'">
+        <div class="seriestitle">American Gods</div>
+          <ion-card>
+            <img src="https://is5-ssl.mzstatic.com/image/thumb/Video128/v4/7b/82/dd/7b82dd8e-86d8-f1b6-38ad-fea5247c3490/source/588x331mv.jpg"/>
+            <ion-card-content>
+              <ion-card-title>
+                Git gone
+              </ion-card-title>
+              <div class="cap-temp">Temporada 1, capítulo 4</div>
+                <ion-icon name="calendar" item-start></ion-icon> &nbsp;
+                Hace 1 año
+                <button ion-button outline round color="light"><ion-icon name="checkmark"></ion-icon>&nbsp; Visto</button>
+              </ion-card-content>
+      </ion-card>
+
+      <div class="seriestitle">The legend of Zelda</div>
+        <ion-card>
+          <img src="https://is2-ssl.mzstatic.com/image/thumb/Video117/v4/30/85/f1/3085f1dc-bccc-80aa-aab5-5c249a7bb739/source/471x265mv.jpg"/>
+            <ion-card-content>
+              <ion-card-title>
+                The ringer
+              </ion-card-title>
+              <div class="cap-temp">Temporada 1, capítulo 1</div>
+              <ion-icon name="calendar" item-start></ion-icon> &nbsp;
+              1989
+              <button ion-button outline round color="light"><ion-icon name="checkmark"></ion-icon>&nbsp; Visto</button>
+            </ion-card-content>
+          </ion-card>
+
+          <div class="seriestitle">The office</div>
+          <ion-card>
+            <img src="https://is5-ssl.mzstatic.com/image/thumb/Video127/v4/6d/63/1c/6d631ca8-2555-b07e-4c9f-c6c42920a008/source/588x331mv.jpg"/>
+            <ion-card-content>
+              <ion-card-title>
+                Fiesta
+              </ion-card-title>
+              <div class="cap-temp">Temporada 2, capítulo 3</div>
+              <ion-icon name="calendar" item-start></ion-icon> &nbsp;
+              2002
+              <button ion-button outline round color="light"><ion-icon name="checkmark"></ion-icon>&nbsp; Visto</button>
+              </ion-card-content>
+            </ion-card>
+  </div>
+
+  <div *ngSwitchCase="'libros'">
+    <ng-container *ngFor="let libro of librospendientes | async">
+      <ion-card *ngIf="libro.titulo">
+        <img (click)="goToLibro(libro.id)" src={{libro.fondo}}/>
+        <ion-card-content>
+          <ion-card-title>
+            {{libro.titulo}}
+          </ion-card-title>
+          <ion-icon name="book" item-start></ion-icon> &nbsp;
+          {{libro.publicacion}}
+          <button ion-button outline round color="light"><ion-icon name="checkmark"></ion-icon>&nbsp; Leído</button>
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </div>
+  <!--<div *ngSwitchCase="'libros'" padding-left>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5><img src="https://is5-ssl.mzstatic.com/image/thumb/Publication117/v4/38/32/e3/3832e302-b837-6ceb-cd94-28d2459b3eea/source/600x600bb.jpg"/></ion-col>
+          <ion-col col-7>
+            <div class="booktitle">El marciano</div>
+            <div class="bookautor">Andy Weir</div>
+            <div class="bookyear">2011</div>
+            <div class="progress">Página 78 de 324</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5><img src="https://is1-ssl.mzstatic.com/image/thumb/Publication124/v4/b0/d3/70/b0d370f0-845e-7cd1-6232-92d616734672/source/600x600bb.jpg"/></ion-col>
+          <ion-col col-7>
+            <div class="booktitle">Fuego y sangre</div>
+            <div class="bookautor">George R.R. Martin</div>
+            <div class="bookyear">2018</div>
+            <div class="progress">Página 81 de 567</div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-5><img src="https://is1-ssl.mzstatic.com/image/thumb/Publication118/v4/68/e1/d6/68e1d6f1-5d17-b211-d826-c63775b5a197/source/600x600bb.jpg"/></ion-col>
+          <ion-col col-7>
+            <div class="booktitle">El alquimista</div>
+            <div class="bookautor">Paulo Coelho</div>
+            <div class="bookyear">1988</div>
+            <div class="progress">Sin empezar</div>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>-->
+    </div>
+
+</ion-content>

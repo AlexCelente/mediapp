@@ -1,0 +1,64 @@
+<ion-header>
+</ion-header>
+
+<ion-content [ngStyle]="{'background-color': shows[id].backcolor}">
+  <button ion-button (click)="dismiss()" class="atras" clear><ion-icon name="arrow-back"></ion-icon>&nbsp; Volver</button>
+  <img src={{shows[id].backsplash}}/>
+  <div class="pelititle">{{shows[id].nombre}}</div>
+  <br>
+
+  <!-- Slider to show all the seasons -->
+<ion-segment scrollable [(ngModel)]="numSeason" class="segment-wrap">
+  <!-- ng-container tag groups elements but doesn't get rendered in the DOM tree as a node -->
+  <ng-container *ngFor="let s of shows[id].seasons; let i=index">
+    <ion-segment-button (click)='setSeason(i)'>
+        Temporada {{i+1}}
+      </ion-segment-button>
+      </ng-container>
+  </ion-segment>
+
+  <ion-grid padding-left class="options">
+    <ion-row>
+     <ion-col col-2>
+        <div class="puntuacion"> <ion-icon name="thumbs-up"></ion-icon> {{shows[id].seasons[numSeason].puntuacion}}</div>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button outline round color="light" class="visto"><ion-icon name="checkmark"></ion-icon>&nbsp; Visto</button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button outline round color="light"><ion-icon name="heart"></ion-icon>&nbsp; Valorar</button>
+      </ion-col>
+      <ion-col col-4 padding-right>
+        <button ion-button outline round color="light"><ion-icon name="chatbubbles"></ion-icon> &nbsp; Comentar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="section">Tráiler
+  <iframe [src]="transform(shows[id].seasons[numSeason].trailerlink)"></iframe>
+  </div>
+  <br>
+  <div class="section">Información</div>
+    <ion-card padding>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-7>
+                <div class="detalles">
+                <ion-icon name="contacts"></ion-icon>&nbsp; {{shows[id].director}}<br>
+                <ion-icon name="videocam"></ion-icon>&nbsp; {{shows[id].genero}}<br>
+                <!-- <ion-icon name="calendar"></ion-icon>&nbsp; {{shows[id].estreno}}<br> -->
+                </div>
+              </ion-col>
+              <ion-col col-5>
+                <img class="poster" src={{shows[id].seasons[numSeason].poster}}/>
+              </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+              <div class="sinopsis">{{shows[id].seasons[numSeason].sinopsis}}</div>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

@@ -1,0 +1,172 @@
+page-shows-info {
+
+  ion-segment {
+    display: block;
+    white-space: nowrap;
+    font-size: 0;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+}
+
+.segment-wrap {
+  text-align: center;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin: 6px 0px 6px 12px;
+}
+
+.segment-ios .segment-button {
+    display: inline-block;
+    min-width: 100px;
+    width: auto;
+    color: white;
+    border-width: 0;
+    border-color: white;
+    border-radius: 12px;
+    height: 2.2em;
+    line-height: 2.2em;
+}
+
+.segment-ios .segment-button.segment-activated {
+  background-color: #5988F7;
+  opacity: 0.8;
+}
+
+.segment-ios .segment-button:first-of-type{
+  border-radius: 12px;
+}
+
+.segment-ios .segment-button:last-of-type {
+  border-radius: 12px;
+  margin-right: 25px;
+}
+
+  .atras {
+    position: absolute;
+    top: 2em;
+    z-index: 3;
+    color: white;
+  }
+
+  .segment-wrap {
+    text-align: center;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  .content {
+    background-color: rgba(212, 170, 32, 1);
+    .row{
+      button {
+      width: 100%;
+    }
+  }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+
+  .pelititle {
+    font-weight: bold;
+    font-size: 1.6em;
+    margin-left: 0.8em;
+    //position: absolute;
+    margin-top: -2em;
+    color: white;
+  }
+
+  .puntuacion {
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: 1em;
+    color: white;
+    margin-top: 1em;
+  }
+
+  .section {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 0.7em;
+    color: white;
+    margin-left: 1em;
+  }
+
+  iframe {
+    margin-top: 0.5em;
+    border-radius: 0.6em;
+    border: none;
+    display: block;
+  }
+
+  .card, .card-ios, .card-md {
+    border-radius: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .card-content, .card-content-ios, .card-content-md {
+    padding-top: 0%;
+    padding-left: 1%;
+    padding-right: 1%;
+
+    .detalles {
+      color: grey;
+      line-height: 2em;
+    }
+
+    img {
+      mask-image: none;
+      height: 9em;
+      width: 9em;
+      border-radius: 0.5em;
+    }
+
+    .sinopsis {
+      font-size: 0.9em;
+      padding-top: 2em;
+      border-top: 0.1em solid rgba(154, 154, 154, 0.47);
+      color: grey;
+    }
+
+  }
+
+  .verahora {
+
+    .subtitle {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+    img {
+      display: inline-block;
+      margin-top: 0.5em;
+      height: 2.5em;
+      width: 2.5em;
+      border-radius: 50%;
+      margin-right: 1em;
+      margin-bottom: 0.3em;
+    }
+
+    .noavailable{
+      font-size: 1.1em;
+      font-weight: bold;
+      color: grey;
+      margin-bottom: 0.3em;
+    }
+  }
+
+  .options .button-ios {
+    font-size: 0.9em;
+  }
+
+
+}

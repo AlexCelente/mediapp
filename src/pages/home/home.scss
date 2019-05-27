@@ -1,0 +1,44 @@
+page-home {
+    img {
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    }
+
+    .content {
+    }
+
+    .segment-wrap {
+      text-align: center;
+      padding-left: 3em;
+      padding-right: 3em;
+
+      .segment-button{
+        height: 1.9em;
+        line-height: 1.7em;
+      }
+    }
+
+    .titulolista {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: white;
+    }
+
+
+    .contenidolista {
+      white-space: nowrap;
+      overflow: scroll;
+
+      img {
+        border-radius: 0.5em;
+        margin-right: 0.6em;
+        height: 10em;
+        width: 6.53em;
+        mask-image: none;
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+
+
+
+}

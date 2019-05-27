@@ -1,0 +1,96 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-shadow no-border>
+
+</ion-header>
+
+<ion-content padding-top>
+  <div *ngFor="let usuario of usuarios | async">
+    <div class="content-wrapper">
+      <div class="information">
+        <img click="cambiarFoto()" src={{usuario.userpic}}/>
+      </div>
+      <ion-card padding>
+        <div class="sectiontitle">Películas vistas</div>
+        <ion-grid padding-bottom margin-bottom>
+          <ion-row padding-top>
+              <div class="historial">
+                <ng-container *ngFor="let peli of pelisvistas | async">
+                  <img *ngIf="peli.id" src={{peli.poster}} (click)="goToPeli(peli.id);"/>
+                </ng-container>
+              </div>
+          </ion-row>
+        </ion-grid>
+        <div class="sectiontitle">Series vistas</div>
+        <ion-grid padding-bottom margin-bottom>
+          <ion-row padding-top>
+              <div class="historial">
+                  <img src="https://image.tmdb.org/t/p/original/7xGul8ZEhtm4ccKVJZd6SpNsHDx.jpg"/>
+                  <img src="https://image.tmdb.org/t/p/original/vZzD8sk9f9L2p1Xih20g3lXzKmO.jpg"/>
+                  <img src="https://image.tmdb.org/t/p/original/qwrGbYxsZQEthB6vv96CCrTNs5T.jpg"/>
+              </div>
+          </ion-row>
+        </ion-grid>
+        <div class="sectiontitle">Libros leídos</div>
+        <ion-grid padding-bottom margin-bottom>
+          <ion-row padding-top>
+              <div class="historial">
+                <ng-container *ngFor="let libro of librosleidos | async">
+                  <img *ngIf="libro.id" src={{libro.portada}} (click)="goToBook(libro.id);"/>
+                </ng-container>
+              </div>
+          </ion-row>
+        </ion-grid>
+        <div class="sectiontitle">Mis listas</div>
+        <ion-grid padding-bottom margin-bottom>
+            <ion-row padding-top>
+              <ion-card class="lista">
+                <ion-card-header>
+                  Lista personalizada 1
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="contenido-lista">
+                    <ng-container *ngFor="let item of listausuario1 | async">
+                      <img (click)="goTo(item.id, item.tipo)" src={{item.poster}}/>
+                    </ng-container>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-row>
+            <ion-row padding-top>
+              <ion-card class="lista">
+                <ion-card-header>
+                  Lista personalizada 2
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="contenido-lista">
+                    <ng-container *ngFor="let item of listausuario2 | async">
+                      <img (click)="goTo(item.id, item.tipo)" src={{item.poster}}/>
+                    </ng-container>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-row>
+            <ion-row padding-top>
+              <ion-card class="lista">
+                <ion-card-header>
+                  Lista personalizada 3
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="contenido-lista">
+                    <ng-container *ngFor="let item of listausuario3 | async">
+                      <img (click)="goTo(item.id, item.tipo)" src={{item.poster}}/>
+                    </ng-container>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

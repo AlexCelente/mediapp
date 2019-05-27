@@ -1,0 +1,24 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list lines="none">
+  <form [formGroup]="loginForm">
+
+    <ion-item>
+      <ion-label position="stacked">Correo electrónico</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="Email address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Contraseña</ion-label>
+      <ion-input type="password" formControlName="password" placeholder="password"></ion-input>
+    </ion-item>
+    <button ion-button round (click)="login()">Iniciar sesión</button>
+
+  </form>
+</ion-list>
+<button ion-button round (click)="toSignup();">Registrarse</button>
+</ion-content>
